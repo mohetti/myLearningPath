@@ -1,0 +1,24 @@
+{
+  "name": "dropdown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohetti/dropdown.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohetti/dropdown/issues"
+  },
+  "homepage": "https://github.com/mohetti/dropdown#readme",
+  "devDependencies": {
+    "webpack": "^5.20.1",
+    "webpack-cli": "^4.5.0"
+  }
+}

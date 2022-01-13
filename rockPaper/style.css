@@ -1,0 +1,146 @@
+/* background picture */
+body {
+    background-image: url("background.jpg");
+}
+
+/* headline style */
+h1 {
+    text-align: center;
+    color: blue
+    
+}
+
+/* headline 2 style */
+h2 {
+    text-align: center;
+    color: red;
+}
+
+/* picture style with border */
+.button-style {
+    border: 3px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+.button-style2 {
+    border: 3px solid black;
+    border-radius: 4px;
+    padding: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+/* background color stone picture*/
+#rock {
+    background-color: grey;
+}
+
+/* background color paper picture*/
+#paper {
+    background-color: white; 
+}
+
+/* background color scissors picture */
+#scissors {
+    background-color: rgb(152, 157, 218)
+}
+
+/* style of playerSelection div (3 pictures) */
+.outer-div {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 50px 33% 0px 33%;
+}
+
+/* style of Player - Computer Textfield */
+.inner-div {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid yellow;
+    border-radius: 4px;
+    background-color: yellow;
+    margin: 20px 36% 0px 36%;
+
+}
+
+
+/* actually game container style*/
+.game-buttons {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px 36% 0px 36%;
+    padding-top: 20px;
+}
+
+
+/* footer style of win scale*/
+.win-count {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px 28% 0px 28%;
+    padding-top: 5px;
+}
+.win-balken {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px 28% 0px 28%;
+    padding-top: 5px;
+}
+
+.rock-img {
+    background-image: url("https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-24.jpg");
+    background-color: grey;
+    background-size: 100px;
+    background-position: 50% 0%;
+}
+
+.paper-img {
+    background-image: url("https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-23.jpg");
+    background-color: white;
+    background-size: 105px;
+    background-position: 38% 50%;
+}
+
+.scis-img {
+    background-image: url("https://icon-library.com/images/rock-paper-scissors-icon/rock-paper-scissors-icon-22.jpg");
+    background-color: rgb(152, 157, 218);
+    background-size: 102px;
+    background-position: 34% center;
+}
+
+.tie-img {
+    background-image: url("https://www.flaticon.com/svg/static/icons/svg/1828/1828665.svg");
+    background-color: white;
+    background-size: 120px;
+    background-position: center center
+}
+
+#result-announcer {
+    margin-left: 46%;
+    padding-top: 150px;
+    font-size: 30px;
+    color: green;
+    font-weight: bold;
+}
+
+button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 50px 100px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  position: fixed;
+  top: 10%;
+  left: 80%;
+}

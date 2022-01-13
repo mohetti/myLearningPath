@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/folder.css">
+    <link rel="stylesheet" href="/css/modal.css">
+    <title>To Do List</title>
+  </head>
+  <body id="window-container">
+    <div id="header">T</div>
+    <div id="body">
+    </div>
+    <div id="left-row">
+      <div id="folder-container">
+        <div id="new-folder-container">
+          <input type="text" id="new-folder" placeholder="New Folder"></input>
+          <input type="submit" id="add-new-btn"></input>
+        </div>
+        <div id="folder-display-container">
+          <ul id="folder-ul">
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div id="right-row"></div>
+    <div id="footer">T</div>
+    <div id="menu">
+      <div class="right-click-item">
+        <i class="fa fa-delete"></i>Delete
+      </div>
+    </div>
+    <div id="task-menu">
+      <div class="right-click">
+        <i class="fas fas-edit"></i>Edit
+      </div>
+    </div>
+    <div class="modal-bg">
+      <div class="modal">
+        <h2>Commit a new Task:</h2>
+        <label for="title">Title: </label>
+        <input type="text" name="title" id="task-title" />
+        <label for="description">Description: </label>
+        <input type="text" name="description" id="task-descr"/>
+        <input type="date" name="date" id="task-date" />
+        <div>Priority: 
+          <input type="radio" name="priority" class="task-prio" id="high" />
+          <input type="radio" name="priority" class="task-prio" id="medium" />
+          <input type="radio" name="priority" class="task-prio" id="low" />
+        </div>
+        <label for="notes" id="hover-notes">Notes:</label>
+        <input type="text" name="notes" id="task-notes" />
+        <input type="submit" id="task-subm" value="Submit task" />
+        <span class="modal-close">X</span>
+      </div>
+    </div>
+    <div>
+      <input type="submit" class="open-modal" value="Create new task" class="open-modal"/>
+    </div>
+    <div id="go-back">
+      <img id="go-back-icon" src="https://icon-library.com/images/go-back-icon/go-back-icon-8.jpg" />
+    </div>
+    <div id="del-task">
+      <img id="del-task-icon" src="https://image.flaticon.com/icons/png/512/61/61848.png" />
+    </div>
+  <script src="main.js"></script>
+  </body>
+</html>

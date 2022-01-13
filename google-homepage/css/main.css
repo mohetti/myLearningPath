@@ -1,0 +1,181 @@
+/* css-style for index.html */
+
+/* Giving the page a 100/100% width/height */
+.page {
+    width: 100%;
+    height: 100%;
+}
+
+/* putting the navigation bar on the right of the page with some space to the corner */
+.ul-style {
+    margin-right: 30px;
+    margin-top: 15px;
+    float: right
+}
+
+/* putting the li elements into horizontal instead of vertical. Also, some font-adjustments */
+.li-style {
+    display: inline-block;
+    font-family: arial, sans-serif;
+    font-size: small;
+    color: #222;
+    margin: 10px;
+    padding: 0;
+    text-decoration: none;
+}
+
+/* this class underlines the navigation and footer links, when you hover over with your mouse */
+.link:hover {
+    text-decoration: underline;
+}
+
+/* this class gives the Log In box in the Navigation bar a blue color */
+.link-button {
+    border: 1px solid #4285f4;
+    background-color: #4285f4;
+    font-weight: bold;
+    color: white;
+    outline: none;
+    display: inline-block;
+    line-height: 28px;
+    padding: 0 12px;
+    border-radius: 2px;
+}
+
+/* setting the font size, color and family for the whole body elements */
+body {
+    font-family: arial, sans-serif;
+    font-size: small;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* class that aligns body-elements in center (picture, searchbar, buttons). But they are still on top of the page */
+.center {
+    text-align: center;
+  }
+
+/* this class puts the body-elements in the middle. Probably there is a better solution */
+.content {
+    margin-top: 200px;
+}
+
+/* this class defines the button Search bar and I'm feeling lucky (height, padding and so they are next to each other */
+.button {
+    height: 70px;
+    padding-top: 18px;
+    display: flex;
+    display: inline-block;
+}
+
+/* this class defines the font and color of the two buttons from the class button */
+.button-style {
+    background-color: #f2f2f2;
+    border: 1px solid #F2F2F2;
+    border-radius: 4px;
+    color: #5f6368;
+    font-family: arial, sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0px 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+}
+
+/* this class defines the style of the searchbar */
+.searchbar {
+    height:45px;
+    border:none;
+    width:500px;
+    font-size:16px;
+    outline: none;
+    
+  }
+
+/* this class defines the style of the searchbar */
+  .bar {
+    margin:0 auto;
+    width:575px;
+    border-radius:24px;
+    border:1px solid #dcdcdc;
+    box-shadow: 1px 1px 8px 1px #dcdcdc;
+  }
+
+  /* this class defines height and position of the microfone-icon */
+.voice {
+    height: 20px;
+    position: relative;
+    top: 5px;
+    left: 10px;
+}
+
+/* this class defines height and position of the magnifier icon. This solution is far from the original, but it works */
+.magnifier {
+    position: absolute;
+    left: 505px;
+    padding-bottom: 5px;
+    pointer-events: none;
+}
+
+
+/* puts footer on bottom and gives it a width over the whole page.
+   Also: Defining font-styles, color and the height of the grey footer bar*/
+footer {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    line-height: 40px;
+    text-align: left;
+    font-size: 15px;
+    background: #F2F2F2;
+    color: rgba(0,0,0,.54);
+}
+
+/* this class displays a dark-grey column-border above the two footer-columns. 
+It is used twice: First in div for Country, second in div for the Navigation bar bottom */
+.line {
+    border-top-color: rgb(228, 228, 228);
+    border-top-style: solid;
+    border-top-width: 1px;
+}
+
+/* this takes away the typical blue, underlined style from links and gives them the font-styles defined in the body above */
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+/* this class brings the navigation bar on the bottom in horizontal position */
+.li-style-footer {
+    display: inline-block;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+/* this class puts the left part of the bottom-nav-bar to the left */
+.ul-style-footer {
+    float: left;
+}
+
+/* this class brings the navigation bar on the bottom in horizontal position. It's used, instead of li-style-footer, because of the different margins */
+.li-footer2 {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+/* /* this class puts the left part of the bottom-nav-bar to the right */
+.ul-style-right {
+    float:right;
+}
+
+/* this class gives the first Containter in the Footer ("Country) a margin to the left, so that it is in vertical line to li-style-footer */
+.country {
+    margin-left: 10px;
+}
+

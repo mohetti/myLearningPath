@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Functions: Task 1</title>
+</head>
+<header>
+</header>
+<body>
+
+
+<script>
+
+/* *******************************************************************************************************************************************************
+                                                SOLUTION FOR A SINGLE ROUND OF ROCK, PAPER, SCISSORS
+*******************************************************************************************************************************************************
+let randomNumber = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+let computerSelection = function() {
+    if (randomNumber === 1) {
+        return "Rock";
+    }
+    else if (randomNumber === 2) {
+        return "Paper";
+    }
+    else {
+        return "Scissors";
+    }
+}
+
+// SECOND: create variable with prompt and function expression playerSelection that checks for tolowercase
+let userInput = prompt("Choose rock, paper or scissors");
+userInput = userInput.toLowerCase();
+
+let playerSelection = function() {
+    if (userInput === "rock") {
+        return "Rock";
+    }
+    else if (userInput === "paper") {
+        return "Paper";
+    }
+    else if (userInput === "scissors") {
+        return "Scissors";
+    }
+    else {
+        return alert("That is neither rock, paper or scissors");
+    }
+}
+// THIRD:  create function expression playGame(player, computer) for the final result
+let playGame = function(player, computer) {
+    if (player() === computer()) {
+        return alert("You tied");
+    }
+    else if (player() === "Rock" && computer() === "Scissors" || player() === "Scissors" && computer() === "Paper" || player() === "Paper" && computer() === "Rock") {
+        return alert("You won. " + player() + " beats " + computer());
+    }
+    else if (player() === "Scissors" && computer() === "Rock" || player() === "Paper" && computer() === "Scissors" || player() === "Rock" && computer() === "Paper") {
+        return alert("You lose. " + computer() + " beats " + player());
+    }
+}
+playGame(playerSelection, computerSelection);
+******************************************************************************************************************************************************* */
+
+
+/* *******************************************************************************************************************************************************
+                                                SOLUTION FOR 5 ROUNDS OF ROCK, PAPER, SCISSORS.
+                                                THE PLAYER CAN ONLY INPUT ONCE, THE COMPUTER DOES IT 5 TIMES
+*******************************************************************************************************************************************************
+//              **************PSEUDOCODE**************
+// FOURTH: write a function that plays 5 rounds of rock, paper scissors and reports the winner at the end
+//         *** the function is called game()
+//         *** I need a loop and a way to store the winner each round
+
+// I need computerSelection - random Number
+// I need playerSelection - prompt for rock, paper, scissors
+// I need a loop to go through comparision 5 times
+// the return of the loop gives a winner. Number > 0 lose | = 0 tie (not possible) | > 0 win
+// computerSelection doesnt need to be transferred to String. It can be 1, 2, 3 
+// playerSelection does neet toLowerCase() but return can be 1, 2, 3
+// game() loop goes through the if statement that compares computer and playerSelection and returns -1, 0 or 1 (lose, tie, win)
+// game() finally gets an if statement with returns (if number from loop > 0 - lose, < 0 win)
+//              **************PSEUDOCODE**************
+
+// function expression - computerSelection. The return is a random number between 1 and 3, which stand for rock, paper, scissor
+let computerSelection = function() {
+    // 1 = rock, 2 = paper, 3 = scissors
+    return Math.floor(Math.random() * (3 - 1 + 1) + 1);
+}
+
+// variable declaration that takes the player Input through a prompt. The variable is then changed to lowercase, to check if the input is valid for the game
+let playerInput = prompt("Choose Rock, Paper or Scissors");
+playerInput = playerInput.toLowerCase();
+
+
+// function expression with if statement for playerSelection. It returns one of the numbers 1 (rock), 2 (paper) or 3 (scissors)
+// if the tolowercase playerInput matches "rock", "paper", or "scissors". Else it returns an alert-error-message.
+// the numbers are used to compare to the computerSelection
+let playerSelection = function() {
+     // 1 = rock, 2 = paper, 3 = scissors
+    if (playerInput === "rock") {
+        return 1;
+    }
+    else if (playerInput === "paper") {
+        return 2;
+    }
+    else if (playerInput === "scissors") {
+        return 3;
+    }
+    else {
+        return alert("That was neither rock, paper or scissors");
+    }
+}
+// in this section the rock/paper/scissors input of the computer and the player are compared in a while loop.
+// the while loop starts with i = 1 and goes to i < 6 (basically to 5). each round the two inputs are compared, whereby playerSelection 
+// is static from the prompt input and computerSelection changes in every loop
+// the variable result starts with 0. If computer and player tie, it stays the same (result + 0)
+// if player beats computer it adds +1 to the result, if player loses it substracts 1 from result
+// the console.log is not necessary, but it helps to see if the while loop works correctly
+// at first i did it with a for loop and it sometimes got me 5 rounds, sometimes 3, sometimes even 9. The console.log helped to check if it works as intended.
+    let result = 0;
+    let i = 1;
+    while (i < 6) {
+        if (playerSelection() === computerSelection()) {
+            result = result + 0;
+            i++
+            console.log(result);
+        }
+        else if (playerSelection() === 1 && computerSelection() === 2 || playerSelection() === 2 && computerSelection() === 3 || playerSelection() === 3 && computerSelection() === 1) {
+            result = result - 1;
+            i++
+            console.log(result);
+        }
+        else if (playerSelection() === 2 && computerSelection() === 1 || playerSelection() === 3 && computerSelection() === 2 || playerSelection() === 1 && computerSelection() === 3) {
+            result = result + 1;
+            i++
+            console.log(result);
+        }
+    }
+
+// this function and the invocation in game(result) takes the finale result of the while loop into account.
+// if the result from the while loop is lower than 0, it means the player lost over the course of 5 rounds.
+// if the result from the while loop is higher than 0, it means the player won over the course of 5 rounds.
+// if the result from the while loop is 0, it means the players tied over the course of 5 rounds.
+// last one is important for the extreme case, where all 5 while-loop rounds are tied
+let game = function(a) {
+if (a < 0) {
+        return alert("You lost");
+    }
+    else if (a > 0) {
+        return alert("You won");
+    }
+    else {
+        return alert("You tied");
+    }
+}
+game(result);
+******************************************************************************************************************************************************* */
+
+
+/* *******************************************************************************************************************************************************
+                                                SOLUTION FOR A 5 ROUNDS OF ROCK, PAPER, SCISSORS.
+                                                THE PLAYER GIVES AN INPUT FOR EVERY ROUND
+                                                THE PLAYER GETS AN ALERT, IF HE WON THE SINGLE ROUND
+                                                ALSO: HE GETS AN ALERT AT THE END, IF HE WON/LOST OVERALL
+*******************************************************************************************************************************************************
+// Declaring the variable userInput. It's used in the while loop to ask the user 5 times via prompt for either rock, paper or scissors
+let userInput;
+
+// Declaring and defining the variable result. It's used to declare the overall winner (over 5 rounds) via an alert.
+// The alert is executed after the while loop. But the variable changes in the while loop -> check it out under function playGame -> return
+let result = 0;
+
+//start of while loop. i is set to 1. The loop is executed until i reaches 5 or rather i < 6
+let i = 1;
+    while (i < 6) {
+
+// the variable userInput gets defined. It prompts the user to write either rock, paper or scissors in the textfield. 
+       userInput = prompt("Choose one");
+
+// the variable user contains userInput in lowercase. Is needed, to do a spellcheck in the function playerSelection
+       user = userInput.toLowerCase();
+
+// the variable randomNumber contains a random number between 1 and 3 (both inclusive)
+let randomNumber = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+
+// the function expression computerSelection takes the outcome of randomNumber and links it to a String. The string is then returned
+// randomNumber 1 = "Rock", randomNumber 2 = "Paper", randomNumber 3 = "Scissors"
+let computerSelection = function() {
+    if (randomNumber === 1) {
+        return "Rock";
+    }
+    else if (randomNumber === 2) {
+        return "Paper";
+    }
+    else {
+        return "Scissors";
+    }
+}
+
+// the function expression playerSelection first does a spellcheck in the if-statements.
+// it uses the variable user (which is userInput in lowercase) and compares it to lowercase.
+// if true, the return is either "Rock", "Paper" or "Scissors". This way it can be compared to computerSelection in the next function
+// if the user missspells, he gets an alert. See: else-statement
+let playerSelection = function() {
+    if (user === "rock") {
+        return "Rock";
+    }
+    else if (user === "paper") {
+        return "Paper";
+    }
+    else if (user === "scissors") {
+        return "Scissors";
+    }
+    else {
+        return alert("That is neither rock, paper or scissors");
+    }
+}
+
+// the function expresion playGame takes 2 parameters. They are compared in an if statement and have 2 returns
+// FIRST RETURN
+// if the parameters are equal (eg rock and rock): the return is an alert, that player and computer tied the x round out of 5.
+// the else if statements return an alert that the player won/lost the x round out of 5.
+// SECOND RETURN
+// the second return, separated with a comma, updates the variable result. Result starts at 0. 
+// the return adds +1 to result, if the player won a round. It substracts 1 if the player lost and adds 0 for a tie.
+let playGame = function(player, computer) {
+    if (player() === computer()) {
+        return alert("You tied"), result = result + 0;
+    }
+    else if (player() === "Rock" && computer() === "Scissors" || player() === "Scissors" && computer() === "Paper" || player() === "Paper" && computer() === "Rock") {
+        return alert("You won. " + player() + " beats " + computer()), result = result + 1;
+    }
+    else if (player() === "Scissors" && computer() === "Rock" || player() === "Paper" && computer() === "Scissors" || player() === "Rock" && computer() === "Paper") {
+        return alert("You lose. " + computer() + " beats " + player()), result = result -1;
+    }
+}
+
+// playGame function is executed. It goes like this:
+// playGame takes the input from playerSelection and computerSelection. Both Selection-functions get executed. 
+// their returns are Strings: Either Rock, Paper or Scissors. 
+// In the if statements the returns are compared for Tie, win or loss. 
+// if one matches, one sees an alert that the round was tied, won or lost. Besides, the result variable gets updated.
+playGame(playerSelection, computerSelection);
+
+// the console.log helps to see if the while loop and the result both work correctly
+// for eg(Tie, Win, Loss, Win, Win) it looks like this: Round 1: 0; Round 2: 1; Round 3: 0; Round 4: 1; Round 5: 2
+console.log("round " + i + ": " + result);
+
+// after playGame is executed, i adds +1 and the while-loop starts again from the beginning. The user gets a new textfield to input rock, paper or scissors
+// this goes as long as i reaches 6 (5 rounds are then played)
+       i++;
+    }
+
+// Without the following code, the user would only see the alerts from the playGame function. 
+// So each round he gets an alert, if he lost, won or tied that specific round.
+// The following code gives an overall result.
+// Therefore it takes the variable result, which was updated in every iteration of the while loop.
+// it's important that this code is outside of the while loop, so it gets executed after all 5 rounds were played.
+// if the result variable turns out to be 0, the payer and computer tied overall (eg WON, WON, TIE, LOSS, LOSS)
+// if the result variable turns out to be > 0, the player won overall (eg WON, WON, LOSS, LOSS, WON) ->
+//                      ***the result variable changed like this*** start at 0 -> Won (+1), Won (+1) = 2, Loss (-1) = 1. Loss (-1) = 0, WON (+1) = 1
+// if the result variable turns out to be < 0, the computer won
+if (result === 0) {
+    alert("Overall you tied");
+}
+else if (result < 0) {
+    alert("Overall you lost");
+}
+else if (result > 0) {
+    alert("Overall you won");
+}
+
+******************************************************************************************************************************************************* */
+
+
+</script>
+</body>
+</html>

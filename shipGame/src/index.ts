@@ -1,0 +1,4 @@
+/*
+index.ts should be sole place for an iife as controller function.
+
+*/

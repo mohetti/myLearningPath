@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Functions: Task 1</title>
+</head>
+<header>
+</header>
+<body>
+
+
+<script>
+
+// FIRST: create function expression computerSelection with randomNumber tied to rock, paper, scissors
+//        create variable for random generator Math.floor(Math.random() * (max - min + 1) + min);
+let randomNumber = Math.floor(Math.random() * (3 - 1 + 1) + 1);
+let computerSelection = function() {
+    if (randomNumber === 1) {
+        return "Rock";
+    }
+    else if (randomNumber === 2) {
+        return "Paper";
+    }
+    else {
+        return "Scissors";
+    }
+}
+
+// SECOND: create variable with prompt and function expression playerSelection that checks for tolowercase
+let userInput = prompt("Choose rock, paper or scissors");
+userInput = userInput.toLowerCase();
+
+let playerSelection = function() {
+    if (userInput === "rock") {
+        return "Rock";
+    }
+    else if (userInput === "paper") {
+        return "Paper";
+    }
+    else if (userInput === "scissors") {
+        return "Scissors";
+    }
+    else {
+        return alert("That is neither rock, paper or scissors");
+    }
+}
+// THIRD:  create function expression playGame(player, computer) for the final result
+let playGame = function(player, computer) {
+    if (player() === computer()) {
+        return alert("You tied");
+    }
+    else if (player() === "Rock" && computer() === "Scissors" || player() === "Scissors" && computer() === "Paper" || player() === "Paper" && computer() === "Rock") {
+        return alert("You won. " + player() + " beats " + computer());
+    }
+    else if (player() === "Scissors" && computer() === "Rock" || player() === "Paper" && computer() === "Scissors" || player() === "Rock" && computer() === "Paper") {
+        return alert("You lose. " + computer() + " beats " + player());
+    }
+}
+playGame(playerSelection, computerSelection);
+
+
+// FUNKTIONIERT ::D
+</script>
+</body>
+</html>

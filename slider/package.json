@@ -1,0 +1,24 @@
+{
+  "name": "slider",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohetti/slider.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohetti/slider/issues"
+  },
+  "homepage": "https://github.com/mohetti/slider#readme",
+  "devDependencies": {
+    "webpack": "^5.20.2",
+    "webpack-cli": "^4.5.0"
+  }
+}

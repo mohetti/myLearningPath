@@ -1,0 +1,41 @@
+#folder-container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-areas: 
+        "new-folder ."
+        "folder-display .";
+}
+
+#new-folder-container {
+    grid-area: new-folder;
+    margin-top: 20px;
+}
+
+#folder-display-container {
+    grid-area: folder-display;
+    margin-top: 100px;
+    border-top: 2px solid black;
+
+}
+
+.folders {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.highlight {
+  background-color: blue;
+}
+
+.task-display {
+  display: flex;
+  font-size: 20px;
+  justify-content: space-between;
+  margin-right: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.task-display li {
+  display: inline-block;
+}

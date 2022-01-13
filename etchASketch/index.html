@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<!-- <script type="text/javascript" src="index.js"></script> -->
+</head>
+<body>
+<div class="hovered-colors black container" id="grid">
+</div>
+<div class="colourChoice">
+    <button type="button" class="button" data-color="gray" id="gray">Gray Colour</button>
+    <button type="button" class="button" data-color="yellow" id="yellow">Yellow Colour</button>
+    <button type="button" class="button" data-color="black" id="black">Black Colour</button>
+    <button type="button" class="button" data-color="rainbow" id="rainbow">Random Colour</button>
+    <button type="button" class="button" data-color="grayScale" id="grayScale">GrayScale</button>
+    <button type="button" class="button" data-color="white" id="eraser">Eraser</button>
+</div>
+<div><button type="button" id="button">Resize your grid manually.</button></div>
+
+<!-- Aufgabe abgeschlossen.
+Was jetzt: Ein regler fürs grid (siehe https://www.theodinproject.com/courses/foundations/lessons/etch-a-sketch-project rlmoser 
+Klick event um zu malen und wieder herauszugehen
+-->
+
+
+<script>
+    "use strict";
+
+    /* ****Bare-Bone***
+    *! Done !* 1 - create 16x16 grid using Javascript (Methods: float/clear, inline-block, flexbox or CSS Grid)
+    *! Done !* 2 - set-up hover addEventListener for the grids (tipp: "hover" automatically does something to the grid. I can define starting and endpoint at will)
+    *! Done !* 3 - color-change to black when hovered (tipp: css-background-color)
+    *! Done !* 4 - add a reset button with a prompt, that asks how big the grid should be now (max. 100x100)
+    *! Done !* 5 - add a rainbow-color (random) as option
+    *! Done !* 6 - add a transition-to-black-function. Only after 10 hovers, the brush is totally black (white-gray-black)
+*/
+
+let container = document.getElementById("grid");
+let n;
+const buttons = document.querySelectorAll(".button");
+const gridContainer = document.querySelectorAll(".hovered-colors");
+let currentColor = "black";
+let currenOpacity = 1;
+
+
+// generates a random hsla for the hover
+let randomColor = function randomColor(){
+    return 'hsla(' + (Math.random() * 360) + ', 100%, 50%, 1)';
+};
+
+
+// creating a grid with number-input from user.
+let makeGrid = function makeGrid(input) {
+    let c;
+    
+    for (c = 0; c < (input * input); c++) {
+        let cell = document.createElement("div");
+        container.appendChild(cell).className = "squares";
+
+        
+    };
+    container.style.gridTemplateColumns = `repeat(${input}, auto)`;
+    container.style.gridTemplateRows = `repeat(${input}, auto)`;
+};
+
+// function gets exectuted, only if a number and below 101
+let numberCheck = function numberCheck() {
+    
+    if ((n % n) === 0 && n <= 100) {
+    makeGrid(n);
+};
+
+    while ((n % n) !== 0) {
+        alert("Please enter a number.");
+        n = prompt("Choose again.");
+        if ((n % n) === 0 && n <= 100) {
+            makeGrid(n);
+        }
+    };
+
+    while ((n % n) === 0 && n > 100) {
+        alert("The number is too high.");
+        n = prompt("Choose again.");
+        if ((n % n) === 0 && n <= 100) {
+            makeGrid(n);
+        }
+        else if ((n % n) !== 0) {
+            alert("Please enter a number");
+            n = prompt("Choose again");
+                if ((n % n) === 0 && n <= 100) {
+                    makeGrid(n);
+                }
+        }
+    };
+let currentColor = "black";
+buttons.forEach(button => { button.addEventListener("click", event => {
+    const newColor = event.target.getAttribute("data-color");
+    gridContainer[0].classList.remove(currentColor);
+    gridContainer[0].classList.add(newColor);
+    currentColor = newColor;
+    });
+});
+
+let coloring = function coloring() {
+    let colour = event.target;
+   let opacityScale = (parseFloat(colour.style.opacity) || 0) + 0.1;
+
+   if (currentColor === "rainbow") {
+    colour.style.opacity = "";
+    colour.style.backgroundColor = randomColor();
+  
+   }
+
+   else if (currentColor === "grayScale") {
+    let currentColor = "black";
+    colour.style.opacity = opacityScale;  
+    colour.style.backgroundColor = currentColor;
+
+   }
+
+   else {
+    colour.style.opacity = "";
+    colour.style.backgroundColor = currentColor;
+
+
+};
+};
+let colouring = document.querySelectorAll(".squares");
+colouring.forEach(element => { element.addEventListener("mouseover", coloring)
+});
+    
+};
+
+// default grid on first pageload
+makeGrid(16);
+
+// function to manual selecting a grid-size. Beforehand, old grid gets deleted
+let removeElements = function removeElements(event) {
+    let elements = document.getElementsByClassName("squares");
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    };
+    n = prompt("Choose the size of your grid");
+    numberCheck(n);
+};
+
+// button for selecting a grid-size manually
+let button = document.querySelector("#button");
+button.addEventListener("click", removeElements);
+
+
+
+
+buttons.forEach(button => { button.addEventListener("click", event => {
+    const newColor = event.target.getAttribute("data-color");
+    gridContainer[0].classList.remove(currentColor);
+    gridContainer[0].classList.add(newColor);
+    currentColor = newColor;
+});
+});
+
+let coloring = function coloring() {
+   let colour = event.target;
+   let opacityScale = (parseFloat(colour.style.opacity) || 0) + 0.1;
+
+   if (currentColor === "rainbow") {
+    colour.style.opacity = "";
+    colour.style.backgroundColor = randomColor();
+  
+   }
+
+   else if (currentColor === "grayScale") {
+    let currentColor = "black";
+    colour.style.opacity = opacityScale;  
+    colour.style.backgroundColor = currentColor;
+
+   }
+
+   else {
+    colour.style.opacity = "";
+    colour.style.backgroundColor = currentColor;
+
+
+};
+};
+let colouring = document.querySelectorAll(".squares");
+colouring.forEach(element => { element.addEventListener("mouseover", coloring)
+});
+
+//probieren, ob die opacity beim klick auf 0 gesetzt werden kann und dann in der coloring function auf 1 bzw 0 für grayscale
+// es bleibt bei zB 0.1 stehen
+</script>
+
+
+
+</body>
+</html>
+

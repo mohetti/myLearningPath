@@ -1,0 +1,1 @@
+(()=>{let e=document.querySelectorAll(".nav");for(let l=0;l<e.length;l++){let e=document.querySelectorAll(".nav")[l],t=document.querySelectorAll(".menu-content")[l],n=function(){""===t.style.display?t.style.display="block":t.style.display=""};e.addEventListener("click",n)}})();
